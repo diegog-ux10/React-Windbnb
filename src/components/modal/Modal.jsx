@@ -3,15 +3,15 @@ import {
   DialogActions,
   DialogContent,
   Button,
-  Paper,
   InputBase,
-  IconButton,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+
+import PropTypes from "prop-types";
 
 export const Modal = ({
   open,
@@ -44,10 +44,8 @@ export const Modal = ({
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Age</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={cityValue}
             label="City"
+            value={cityValue}
             onChange={handleInputCityChange}
           >
             {newCitiesResult.map((city, i) => (
@@ -79,4 +77,14 @@ export const Modal = ({
       </DialogActions>
     </Dialog>
   );
+};
+
+Modal.propTypes = {
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+  onCityChange: PropTypes.func,
+  onGuestsChange: PropTypes.func,
+  cityValue: PropTypes.string,
+  guestsValue: PropTypes.string,
+  cities: PropTypes.array,
 };
