@@ -7,7 +7,7 @@ import { Modal } from "./components/modal/Modal";
 import { useState } from "react";
 
 export const App = () => {
-  const { setFilters, stays, filters } = useStays();
+  const { setFilters, stays, filters, cities } = useStays();
   const [open, setOpen] = useState(false);
 
   const handleCityChange = (newCity) => {
@@ -45,7 +45,16 @@ export const App = () => {
           </Grid>
         </Stack>
       </Container>
-      <Modal open={open} setOpen={setOpen} />
+      <Modal
+        open={open}
+        setOpen={setOpen}
+        cities={cities}
+        cityValue={filters.city}
+        guestsValue={filters.maxGuests}
+        onCityChange={handleCityChange}
+        onGuestsChange={handleGuestsChange}
+        setModalOpen={setOpen}
+      />
     </>
   );
 };
