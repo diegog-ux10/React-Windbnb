@@ -26,7 +26,9 @@ export const useStays = () => {
   const stays = useMemo(() => {
     let stays = data;
     if (filters.city) {
-      stays = stays.filter((stay) => stay.city === filters.city);
+      stays = stays.filter(
+        (stay) => stay.city.toLowerCase() === filters.city.toLowerCase()
+      );
     }
     if (filters.guests) {
       const maxGuests = Number(filters.guests);
