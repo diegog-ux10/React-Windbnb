@@ -26,7 +26,7 @@ export const Modal = ({
     setOpen(false);
   };
   const handleInputCityChange = (e) => {
-    const term = e.currentTarget.value;
+    const term = e.target.value;
     onCityChange(term);
   };
 
@@ -34,6 +34,9 @@ export const Modal = ({
     const term = e.currentTarget.value;
     onGuestsChange(term);
   };
+
+  const dataCitiesArr = new Set(cities);
+  let newCitiesResult = [...dataCitiesArr];
 
   return (
     <Dialog open={open} onClose={handleClose} fullWidth>
@@ -47,7 +50,7 @@ export const Modal = ({
             label="City"
             onChange={handleInputCityChange}
           >
-            {cities.map((city, i) => (
+            {newCitiesResult.map((city, i) => (
               <MenuItem value={city} key={i}>
                 {city}
               </MenuItem>
