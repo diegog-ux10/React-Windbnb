@@ -10,7 +10,7 @@ export const theme = createTheme({
       xl: 1400,
     },
   },
-  shadows: ["none"],
+  shadows: Array(25).fill("none"),
   palette: {
     primary: {
       main: "#FF5733",
